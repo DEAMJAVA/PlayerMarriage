@@ -1,0 +1,45 @@
+{
+	"schemaVersion": 1,
+	"id": "player-marriage",
+	"version": "${version}",
+	"name": "Player Marriage",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"DEAMJAVA"
+	],
+	"contact": {
+		"homepage": "https://github.com/DEAMJAVA/PlayerMarriage",
+		"sources": "https://github.com/DEAMJAVA/PlayerMarriage"
+	},
+	"license": "GPLv3",
+	"icon": "assets/player-marriage/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "net.deamjava.player_marriage.PlayerMarriage",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "net.deamjava.player_marriage.client.PlayerMarriageClient",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"player-marriage.mixins.json",
+		{
+			"config": "player-marriage.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.6",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	}
+}
