@@ -499,13 +499,11 @@ object MarryCommand {
             )
         }
 
-        partner.displayClientMessage(
-            Component.literal("❤ $playerName kissed you! ❤").withStyle(ChatFormatting.LIGHT_PURPLE),
-            true
+        partner.sendOverlayMessage(
+            Component.literal("❤ $playerName kissed you! ❤").withStyle(ChatFormatting.LIGHT_PURPLE)
         )
-        player.displayClientMessage(
-            Component.literal("❤ You kissed $partnerName! ❤").withStyle(ChatFormatting.LIGHT_PURPLE),
-            true
+        player.sendOverlayMessage(
+            Component.literal("❤ You kissed $partnerName! ❤").withStyle(ChatFormatting.LIGHT_PURPLE)
         )
 
         (player.level() as ServerLevel).playSound(
@@ -534,13 +532,11 @@ object MarryCommand {
             return 0
         }
 
-        partner.displayClientMessage(
-            Component.literal("🤗 ${player.name.string} hugged you!").withStyle(ChatFormatting.YELLOW),
-            true
+        partner.sendOverlayMessage(
+            Component.literal("🤗 ${player.name.string} hugged you!").withStyle(ChatFormatting.YELLOW)
         )
-        player.displayClientMessage(
-            Component.literal("🤗 You hugged $partnerName!").withStyle(ChatFormatting.YELLOW),
-            true
+        player.sendOverlayMessage(
+            Component.literal("🤗 You hugged $partnerName!").withStyle(ChatFormatting.YELLOW)
         )
 
         (player.level() as ServerLevel).sendParticles(
@@ -588,13 +584,11 @@ object MarryCommand {
         level.sendParticles(ParticleTypes.HEART, partner.x, partner.y + 1.0, partner.z, 20, 0.6, 0.5, 0.6, 0.02)
         level.playSound(null, player.blockPosition(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 0.4f, 1.2f)
 
-        partner.displayClientMessage(
-            Component.literal("❤ ${player.name.string} had sex with you (;.").withStyle(ChatFormatting.LIGHT_PURPLE),
-            true
+        partner.sendOverlayMessage(
+            Component.literal("❤ ${player.name.string} had sex with you (;.").withStyle(ChatFormatting.LIGHT_PURPLE)
         )
-        player.displayClientMessage(
-            Component.literal("❤ You had sex with $partnerName.").withStyle(ChatFormatting.LIGHT_PURPLE),
-            true
+        player.sendOverlayMessage(
+            Component.literal("❤ You had sex with $partnerName.").withStyle(ChatFormatting.LIGHT_PURPLE)
         )
         return 1
     }

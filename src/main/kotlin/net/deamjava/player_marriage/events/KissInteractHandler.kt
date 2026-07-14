@@ -36,7 +36,7 @@ object KissInteractHandler {
             val lastKiss = kissCooldowns[serverPlayer.stringUUID] ?: 0L
             if (now - lastKiss < cooldownSeconds) {
                 val remaining = cooldownSeconds - (now - lastKiss)
-                serverPlayer.displayClientMessage(Msg.info("Wait ${remaining}s before kissing again!"), true)
+                serverPlayer.sendOverlayMessage(Msg.info("Wait ${remaining}s before kissing again!"))
                 return@register InteractionResult.SUCCESS
             }
 
