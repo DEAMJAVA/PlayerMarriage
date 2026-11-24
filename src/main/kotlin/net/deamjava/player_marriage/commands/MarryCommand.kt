@@ -17,6 +17,7 @@ import net.minecraft.server.level.ServerLevel
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.sounds.SoundEvents
 import net.minecraft.sounds.SoundSource
+import net.minecraft.util.Prediction
 import net.minecraft.world.entity.Relative
 import java.time.Instant
 import java.time.ZoneId
@@ -409,8 +410,8 @@ object MarryCommand {
         val gift = held.copy()
         player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, net.minecraft.world.item.ItemStack.EMPTY)
 
-        if (!partner.inventory.add(gift)) {
-            partner.drop(gift, false)
+        if (!partner.getInventory().add(gift)) {
+            partner.drop(gift, false, Prediction.PREDICTED);
         }
 
         player.sendSystemMessage(Msg.heart("You gifted $itemName to $partnerName! ❤"))
